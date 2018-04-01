@@ -1,0 +1,102 @@
+<html>
+<title>ODD EVEN SORT</title>
+
+<style>
+div {
+    background-color: afeeee;
+    width: 300px;
+    border: 25px solid;
+    border-color:  	00bfff;
+    padding: 25px;
+    margin: 25px;
+}
+.button {
+    background-color: 00bfff; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.table{
+	border-color: black;
+	border-style: bold;
+}
+</style>
+
+<body>
+<br>
+<br>
+<br><br>	
+
+<center>
+<div>
+<h2>ODD EVEN SORT</h2>
+<br>
+
+<textarea rows="2" cols="30" name="numbers" id="nn">
+
+</textarea><br><br>
+<button class= "button" type="button" onclick="oddeven(document.getElementById('nn').value)"> SORT </button><br><br>
+
+<table class="table" border="1px" >
+
+<tr>
+	<td align="center"><b>Result</b></td>
+</tr>
+<tr>
+	<td><p id="numbers1"></p></td>
+</tr>
+</table>
+
+</div>
+</center>
+<script language="javascript">
+var array;
+var sorted;
+function oddeven(v)
+{
+	//document.getElementById("numbers1").innerHTML = "ewfdefe";
+	 array=v.split(' ');
+	var n = array.length;
+	document.getElementById("numbers1").innerHTML = array;
+	 sorted = false;
+	while(!sorted){
+		sorted = true;
+		var i;
+		for(i = 0;i < n-1;i += 2){
+			if(parseInt(array[i]) > parseInt(array[i+1])){
+				swap(i,i+1);
+				sorted = false;
+			}
+		}
+		for(i = 1;i < n-1;i += 2){
+                        if(parseInt(array[i]) > parseInt(array[i+1])){
+                                swap(i,i+1);
+                                sorted = false;
+                        }
+                }
+	}
+
+	result();
+
+}
+
+function swap(e1,e2){
+		var temp = array[e1];
+		array[e1] = array[e2];
+		array[e2] = temp;
+	//	document.write('Inside')i
+	}
+function result(){
+	if(sorted){
+		document.getElementById("numbers1").innerHTML = array;
+	}}
+</script>
+
+</body>
+</html>
